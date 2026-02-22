@@ -1,38 +1,46 @@
-/* Optional header (can keep or delete) */
 /* ==UserStyle==
-@name           Links Blue Everywhere
+@name           Links Blue (Safe Version)
 @namespace      github.com/fraiz-tagada
-@version        1.1.0
-@description    Forces links to use a custom blue color
+@version        2.0.0
+@description    Force blue color only on simple text links
 @preprocessor   default
 ==/UserStyle== */
 
-/* Global: force all links blue */
-a,
-a:link,
-a:visited,
-a:hover,
-a:active,
-a *,
-a:visited * {
+/* 
+   Cible uniquement les liens "simples" :
+   - sans classe
+   - sans rôle bouton
+   - sans attributs de bouton courants
+   - sans conteneur complexe
+*/
+
+a:not([class])
+ :not([role="button"])
+ :not([class*="btn"])
+ :not([class*="button"])
+ :not([class*="nav"])
+ :not([class*="menu"])
+ :not([class*="card"]) {
+  
   color: #023eb6 !important;
   -webkit-text-fill-color: #023eb6 !important;
-  text-decoration: inherit !important;
-  background-color: transparent !important;
-  outline: none !important;
 }
 
-/* Google Search: extra specificity */
-#search a,
-#search a:visited,
-#search a *,
-#search a:visited *,
-a[ping],
-a[ping]:visited,
-a[ping] *,
-a[ping]:visited *,
-a h3,
-a:visited h3 {
+/* Garde la cohérence sur les états */
+a:not([class])
+ :not([role="button"])
+ :not([class*="btn"])
+ :not([class*="button"])
+ :not([class*="nav"])
+ :not([class*="menu"])
+ :not([class*="card"]):visited,
+a:not([class])
+ :not([role="button"])
+ :not([class*="btn"])
+ :not([class*="button"])
+ :not([class*="nav"])
+ :not([class*="menu"])
+ :not([class*="card"]):hover {
+
   color: #023eb6 !important;
   -webkit-text-fill-color: #023eb6 !important;
-}
