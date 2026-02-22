@@ -1,0 +1,24 @@
+/* ==UserStyle==
+@name           Links Blue Everywhere
+@namespace      github.com/your-username
+@version        1.0.0
+@description    Forces all links to use a custom blue color
+@author         You
+@preprocessor   default
+==/UserStyle== */
+
+/* Apply to all websites */
+@-moz-document regexp(".*") {
+
+  a,
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    color: #023eb6 !important;
+    text-decoration: inherit !important;
+    background-color: transparent !important;
+    outline: none !important;
+  }
+
+}
